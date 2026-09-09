@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede de Proteção - Basta de Feminicídio</title>
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --primary-color: #4a148c; /* Roxo escuro */
+            --secondary-color: #7c43bd; /* Roxo claro */
+            --accent-color: #e53935; /* Vermelho alerta */
+            --bg-color: #f3e5f5; /* Fundo claro */
+            --text-dark: #212121;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Botão de Saída Rápida (Segurança) */
+        #quick-exit {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: background 0.3s;
+        }
+
+        #quick-exit:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(74, 20, 140, 0.9), rgba(124, 67, 189, 0.9)), url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        #hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-cta {
+            background-color: var(--text-light);
+            color: var(--primary-color);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Seção Solução */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: var(--text-light);
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Seção Ajuda */
+        #ajuda {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+        }
+
+        #ajuda h2 {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .telefone {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            margin: 20px 0;
+            color: #ffeb3b; /* Amarelo para destaque */
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsividade */
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            #hero h2 {
+                font-size: 2rem;
+            }
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            #quick-exit {
+                top: auto;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão de Segurança -->
+    <button id="quick-exit" onclick="saidaRapida()">SAÍDA RÁPIDA (ESC)</button>
+
+    <header>
+        <h1>Rede de Proteção</h1>
+        <nav>
+            <a href="#solucao">A Solução</a>
+            <a href="#como-funciona">Como Funciona</a>
+            <a href="#ajuda">Pedir Ajuda</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Nenhuma a menos. A tecnologia a favor da vida.</h2>
+        <p>Apresentamos uma solução tecnológica focada na prevenção do feminicídio e no acolhimento de mulheres em situação de risco.</p>
+        <button class="btn-cta" onclick="document.getElementById('solucao').scrollIntoView();">Conhecer o Projeto</button>
+    </section>
+
+    <section id="solucao">
+        <h2>O que nossa solução oferece</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Botão do Pânico Invisível</h3>
+                <p>Aplicativo camuflado no celular que aciona autoridades e contatos de confiança silenciosamente.</p>
+            </div>
+            <div class="card">
+                <h3>Mapeamento de Risco</h3>
+                <p>Inteligência de dados para identificar padrões de comportamento do agressor e prever riscos iminentes.</p>
+            </div>
+            <div class="card">
+                <h3>Rede de Apoio Local</h3>
+                <p>Conexão imediata com ONGs, abrigos sigilosos e suporte jurídico ou psicológico na sua região.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="como-funciona">
+        <h2>Impacto e Transparência</h2>
+        <p>A violência não pode ser invisível. Nossa solução opera garantindo o sigilo absoluto dos dados da vítima, enquanto atua rapidamente para criar um escudo de proteção entre ela e o agressor. Seja implementada em prefeituras ou na iniciativa privada, a prioridade é sempre o resgate seguro.</p>
+    </section>
+
+    <section id="ajuda">
+        <h2>Você não está sozinha. Peça ajuda hoje.</h2>
+        <p>Se você está em perigo ou conhece alguém que esteja, não hesite em denunciar.</p>
+        <span class="telefone">Ligue 180</span>
+        <p>Central de Atendimento à Mulher. Em caso de emergência imediata, <strong>Ligue 190 (Polícia Militar)</strong>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rede de Proteção. Desenvolvido com propósito para salvar vidas.</p>
+    </footer>
+
+    <script>
+        // Função de Saída Rápida de Segurança
+        function saidaRapida() {
+            // Substitui o histórico atual para que a pessoa não consiga voltar usando a seta do navegador
+            window.location.replace("https://www.google.com");
+        }
+
+        // Aciona a saída rápida também se a tecla 'Escape' (ESC) for pressionada
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                saidaRapida();
+            }
+        });
+
+        // Simulação de clique no card para exibir mais informações no console
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const titulo = card.querySelector('h3').innerText;
+                console.log('Interesse demonstrado na funcionalidade: ' + titulo);
+                // Aqui você pode integrar um modal (janela pop-up) no futuro
+            });
+        });
+    </script>
+</body>
+</html>
